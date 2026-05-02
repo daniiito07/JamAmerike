@@ -1,10 +1,12 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Configuración de Movimiento")]
     [SerializeField] private float aceleraccion = 15f;
     [SerializeField] private float VelocidadMaxima = 20f;
+    [SerializeField] private float linearDampingAlChocar = 5f; 
 
     [Header("Configuración de Boost")]
     [SerializeField] private float multiplicadorBoost = 2.5f;
@@ -14,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private string tagPared = "Pared";
     [SerializeField] private LayerMask layerPared;
 
+    [Header("Ajustes de Impacto")]
+    [SerializeField] private float fuerzaRebote = 0.1f;
+
     private Rigidbody rb;
     private Vector3 direccionActual;
     private bool estaDeslizando = false;
@@ -22,11 +27,13 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        
         rb.linearDamping = 0;
         rb.angularDamping = 0;
         rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
 
-        // CRÍTICO: Debe ser Continuous para no atravesar paredes
+        
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
         if (luzBoost != null) luzBoost.enabled = false;
@@ -34,9 +41,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        
         boostActivo = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
         if (luzBoost != null) luzBoost.enabled = boostActivo;
 
+        
         if (!estaDeslizando)
         {
             float moveX = Input.GetAxisRaw("Horizontal");
@@ -44,11 +53,13 @@ public class PlayerMovement : MonoBehaviour
 
             if (moveX != 0 || moveZ != 0)
             {
+                
                 Vector3 nuevaDir = (moveX != 0) ? new Vector3(moveX, 0, 0) : new Vector3(0, 0, moveZ);
 
-                // SEGURIDAD: Solo arrancar si no hay una pared inmediatamente enfrente
-                if (!Physics.Raycast(transform.position, nuevaDir.normalized, 0.6f, layerPared))
+                
+                if (!Physics.Raycast(transform.position, nuevaDir.normalized, 0.7f, layerPared))
                 {
+                    rb.linearDamping = 0; 
                     direccionActual = nuevaDir.normalized;
                     estaDeslizando = true;
                 }
@@ -60,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (estaDeslizando)
         {
+            
             float fuerzaFinal = boostActivo ? aceleraccion * multiplicadorBoost : aceleraccion;
             float velMaxFinal = boostActivo ? VelocidadMaxima * multiplicadorBoost : VelocidadMaxima;
 
@@ -74,35 +86,40 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(tagPared))
         {
-            LiberarJugador(collision);
+            GestionarImpacto(collision);
         }
     }
 
-    // Backup por si se queda vibrando contra la pared
+    
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag(tagPared) && estaDeslizando)
         {
-            LiberarJugador(collision);
+            GestionarImpacto(collision);
         }
     }
 
-    private void LiberarJugador(Collision collision)
+    private void GestionarImpacto(Collision collision)
     {
-        // 1. Detener física
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-
-        // 2. Desbloquear control
+        
         estaDeslizando = false;
         direccionActual = Vector3.zero;
 
-        // 3. EMPUJÓN DE SEGURIDAD (Anti-Atrapamiento)
-        // Obtenemos el punto de contacto para empujar al jugador hacia afuera
+        
         ContactPoint contact = collision.contacts[0];
-        Vector3 pushDir = contact.normal;
+        Vector3 direccionRebote = contact.normal;
 
-        // Movemos al jugador un poco hacia afuera de la pared
-        transform.position += pushDir * 0.05f;
+        
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        
+        rb.AddForce(direccionRebote * fuerzaRebote, ForceMode.Impulse);
+
+        
+        rb.linearDamping = linearDampingAlChocar;
+
+       
+        transform.position += direccionRebote * 0.05f;
     }
 }
