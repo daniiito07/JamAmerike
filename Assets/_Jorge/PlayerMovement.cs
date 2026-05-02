@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Configuración de Boost")]
     [SerializeField] private float multiplicadorBoost = 2.5f;
     [SerializeField] private Light luzBoost;
+    [SerializeField] private VignetteController vignetteScript;
 
     [Header("Filtros de Colisión")]
     [SerializeField] private string tagPared = "Pared";
@@ -40,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
     {
         boostActivo = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
         if (luzBoost != null) luzBoost.enabled = boostActivo;
+        // Añade esto para controlar la viñeta desde aquí
+        if (vignetteScript != null)
+        {
+            vignetteScript.SetBoost(boostActivo);
+        }
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
