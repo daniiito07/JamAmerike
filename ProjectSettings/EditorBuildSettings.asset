@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Final Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_Diego/Scenes/Menu.unity
+    guid: 30fbcaf13e6320b438537c510e87959a
+  - enabled: 1
+    path: Assets/_Diego/Scenes/LevelT1.unity
+    guid: 565c52e4d2e597942afe7a1faa37a767
+  - enabled: 1
+    path: Assets/_Diego/Scenes/LevelT2.unity
+    guid: ad623ef724c777841bb4e33d6c12db89
+  - enabled: 1
+    path: Assets/_Diego/Scenes/LevelT3.unity
+    guid: 781b425d53b7a934b92c351831b0eeee
+  - enabled: 1
+    path: Assets/_Diego/Scenes/LevelT4.unity
+    guid: fcece63b3aafebc40873c38ef76e07be
+  - enabled: 1
+    path: Assets/_Diego/Scenes/LevelT5.unity
+    guid: 174c4108dce12684dafa17c32f591f97
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
