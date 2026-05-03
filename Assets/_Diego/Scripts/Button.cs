@@ -9,6 +9,11 @@ public class Button : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
+    public void VolverAlMenu()
+    {
+        UIStateHandler.Instance.SetState(UIState.MAIN_MENU);  // ← solo cambia el panel
+    }
+
     public void CargarMenu()
     {
         UIStateHandler.Instance.GoToMenu();
@@ -22,7 +27,7 @@ public class Button : MonoBehaviour
     public void CargarLevelMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("LevelMenu");
+        UIStateHandler.Instance.SetState(UIState.LEVEL_MENU);
     }
 
     public void CargarCredits()
