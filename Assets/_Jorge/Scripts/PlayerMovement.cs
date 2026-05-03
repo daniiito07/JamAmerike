@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Vector3 direccionActual;
     private bool estaDeslizando = false;
-    private bool yaCambioDireccion = false; 
+    private bool yaCambioDireccion = false;
     private bool boostActivo = false;
 
     private void Awake()
@@ -44,13 +44,11 @@ public class PlayerMovement : MonoBehaviour
     {
         boostActivo = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
 
-        if (luzBoost != null) luzBoost.enabled = boostActivo;
+        // Control de la luz: Solo se enciende si hay boost Y el personaje se está moviendo
+        if (luzBoost != null)
+            luzBoost.enabled = boostActivo && estaDeslizando;
+
         if (camaraScript != null) camaraScript.SetBoost(boostActivo);
-        // Añade esto para controlar la viñeta desde aquí
-        //if (vignetteScript != null)
-        //{
-        //    vignetteScript.SetBoost(boostActivo);
-        //}
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
@@ -61,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
             if (moveX != 0) nuevaDir = new Vector3(moveX, 0, 0).normalized;
             else if (moveZ != 0) nuevaDir = new Vector3(0, 0, moveZ).normalized;
 
-           
             if (!estaDeslizando)
             {
                 IniciarMovimiento(nuevaDir);
@@ -80,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             rb.linearDamping = 0;
             direccionActual = dir;
             estaDeslizando = true;
-            yaCambioDireccion = false; 
+            yaCambioDireccion = false;
         }
     }
 
@@ -88,10 +85,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!Physics.Raycast(transform.position, dir, 0.8f, layerPared))
         {
-            
             rb.linearVelocity = Vector3.zero;
             direccionActual = dir;
-            yaCambioDireccion = true; 
+            yaCambioDireccion = true;
 
             Debug.Log("¡Cambio único utilizado!");
         }
@@ -122,8 +118,11 @@ public class PlayerMovement : MonoBehaviour
     private void GestionarImpacto(Collision collision)
     {
         estaDeslizando = false;
-        yaCambioDireccion = false; 
+        yaCambioDireccion = false;
         direccionActual = Vector3.zero;
+
+        // APAGAR LUZ AL CHOCAR
+        if (luzBoost != null) luzBoost.enabled = false;
 
         ContactPoint contact = collision.contacts[0];
         Vector3 direccionRebote = contact.normal;
