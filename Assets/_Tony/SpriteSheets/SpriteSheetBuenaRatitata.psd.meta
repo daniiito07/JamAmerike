@@ -158,9 +158,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 85
-        y: 171
+        y: 174
         width: 30
-        height: 73
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,9 +180,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 171
+        y: 175
         width: 36
-        height: 73
+        height: 69
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,7 +206,7 @@ TextureImporter:
         width: 34
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,7 +228,7 @@ TextureImporter:
         width: 34
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -245,12 +245,12 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_6
       rect:
         serializedVersion: 2
-        x: 77
-        y: 93
-        width: 34
-        height: 71
+        x: 4
+        y: 16
+        width: 30
+        height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -259,6 +259,204 @@ TextureImporter:
       bones: []
       spriteID: db22515628af9104ca76d1cc9b47eeb9
       internalID: -741653906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_7
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 16
+        width: 30
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18d258fe58e07ba42b6058886f07bacb
+      internalID: 96428644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 16
+        width: 30
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0c087e34fda5b4dbc10de16f014ee8
+      internalID: 1342898154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_9
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 16
+        width: 40
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e42be82444512e24199b68e2bb042c53
+      internalID: -1056702748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_10
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 16
+        width: 41
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b2e678e02e1355439ef1bfa6c6f9e2d
+      internalID: -537281731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_11
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 16
+        width: 41
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3858ac69b05b52a4db0ed05ade71ad12
+      internalID: -411800864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_13
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 176
+        width: 44
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d205bf482dafdb4d9a0844699e5c87a
+      internalID: 1349308253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_14
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 99
+        width: 45
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee934df3c6e53f04ea203cc993f687dd
+      internalID: 1918731221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_15
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 99
+        width: 41
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed83a496f7894e6409cd39a789a3fc18
+      internalID: 801946985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_16
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 99
+        width: 43
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8db1e35cbf535c64c96e35f69a11e27c
+      internalID: -1893040938
       vertices: []
       indices: 
       edges: []
@@ -279,11 +477,21 @@ TextureImporter:
     nameFileIdTable:
       SpriteSheetBuenaRatitata_0: -219819800
       SpriteSheetBuenaRatitata_1: 463000618
+      SpriteSheetBuenaRatitata_10: -537281731
+      SpriteSheetBuenaRatitata_11: -411800864
+      SpriteSheetBuenaRatitata_12: -1352847548
+      SpriteSheetBuenaRatitata_13: 1349308253
+      SpriteSheetBuenaRatitata_14: 1918731221
+      SpriteSheetBuenaRatitata_15: 801946985
+      SpriteSheetBuenaRatitata_16: -1893040938
       SpriteSheetBuenaRatitata_2: -1614361734
       SpriteSheetBuenaRatitata_3: -821644277
       SpriteSheetBuenaRatitata_4: -1559239419
       SpriteSheetBuenaRatitata_5: -1625077951
       SpriteSheetBuenaRatitata_6: -741653906
+      SpriteSheetBuenaRatitata_7: 96428644
+      SpriteSheetBuenaRatitata_8: 1342898154
+      SpriteSheetBuenaRatitata_9: -1056702748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
