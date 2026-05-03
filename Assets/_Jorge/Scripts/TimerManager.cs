@@ -26,7 +26,6 @@ public class TimerManager : MonoBehaviour
     {
         tiempoActual = tiempoInicialSegundos;
 
-        // Aseguramos que el panel de derrota esté apagado al empezar
         if (canvasPerdio != null) canvasPerdio.SetActive(false);
 
         if (sliderTiempo != null)
@@ -41,7 +40,6 @@ public class TimerManager : MonoBehaviour
     {
         if (tiempoAgotado) return;
 
-        // Detección del Boost
         bool estaUsandoBoost = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
         float flujoTiempo = Time.deltaTime;
 
@@ -55,7 +53,6 @@ public class TimerManager : MonoBehaviour
             textoContador.color = Color.white;
         }
 
-        // Aplicar reducción
         if (tiempoActual > 0)
         {
             tiempoActual -= flujoTiempo;
@@ -89,10 +86,8 @@ public class TimerManager : MonoBehaviour
 
         if (canvasPerdio != null)
         {
-            canvasPerdio.SetActive(true); // Muestra el panel de derrota
-            Time.timeScale = 0f;          // Pausa el juego
-            Cursor.lockState = CursorLockMode.None; // Libera el mouse
-            Cursor.visible = true;
+            canvasPerdio.SetActive(true);
+            Time.timeScale = 0f;          
         }
 
         Debug.Log("¡Tiempo agotado!");
