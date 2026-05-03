@@ -1531,8 +1531,8 @@
     "m_ObjectId": "08e6ff527b19400bbd4e6cc0ee4fc94e",
     "m_Title": "Direct Lighting",
     "m_Position": {
-        "x": -1783.9998779296875,
-        "y": 2530.400146484375
+        "x": -1783.0,
+        "y": 2532.0
     }
 }
 
@@ -1725,8 +1725,8 @@
     "m_ObjectId": "12c2ea65f092456f9a5b382da298085b",
     "m_Title": "SmoothStep , inverse lerp, remap",
     "m_Position": {
-        "x": -2215.19970703125,
-        "y": 1160.7998046875
+        "x": -2215.0,
+        "y": 1163.0
     }
 }
 
@@ -2018,8 +2018,8 @@
     "m_ObjectId": "1b9dfd61cec24bac8802edc6f33237c3",
     "m_Title": "Enmascarar Specular Lighting",
     "m_Position": {
-        "x": -140.0,
-        "y": 2541.599609375
+        "x": -139.0,
+        "y": 2543.0
     }
 }
 
@@ -2276,7 +2276,7 @@
     "m_Group": {
         "m_Id": "fba0f7546a28457ea695dc6630a3907c"
     },
-    "m_Name": "Ambient Sample SH",
+    "m_Name": "Ambient SampleSH",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -2451,8 +2451,8 @@
     "m_ObjectId": "2b1f9302567d4535abacd04147e51d67",
     "m_Title": "Smooth-Toon",
     "m_Position": {
-        "x": -915.2000732421875,
-        "y": 3076.000244140625
+        "x": -915.0,
+        "y": 3078.0
     }
 }
 
@@ -2501,8 +2501,8 @@
     "m_ObjectId": "2dc3914dc01e412facca5e0504cb0ffe",
     "m_Title": "Smooth-Toon",
     "m_Position": {
-        "x": -652.8001098632813,
-        "y": 1688.0001220703125
+        "x": -652.0,
+        "y": 1690.0
     }
 }
 
@@ -3829,7 +3829,7 @@
     },
     "m_Slots": [
         {
-            "m_Id": "5917222ce2a64e629831f987feadc7d0"
+            "m_Id": "ef2851f43b02497498d70fae7897dd72"
         },
         {
             "m_Id": "1c93daa3f2e640a39ed59c3b5f453e44"
@@ -3952,21 +3952,6 @@
         "z": 0.0,
         "w": 0.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "5917222ce2a64e629831f987feadc7d0",
-    "m_Id": 0,
-    "m_DisplayName": "In",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "In",
-    "m_StageCapability": 3,
-    "m_Value": 0.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
 }
 
 {
@@ -4625,8 +4610,8 @@
     "m_ObjectId": "71ce316677cb400098e9d34f125ae6dc",
     "m_Title": "Final Composite",
     "m_Position": {
-        "x": 283.199951171875,
-        "y": 2543.999755859375
+        "x": 284.0,
+        "y": 2546.0
     }
 }
 
@@ -4846,8 +4831,8 @@
     "m_ObjectId": "796e26d9d0594cd7bd7f57853afb79b9",
     "m_Title": "Intensity",
     "m_Position": {
-        "x": -553.5999755859375,
-        "y": 2132.0
+        "x": -553.0,
+        "y": 2134.0
     }
 }
 
@@ -5427,8 +5412,8 @@
     "m_ObjectId": "92105f5ec4b446ee8fa862ed605a59b1",
     "m_Title": "Diffuse Color",
     "m_Position": {
-        "x": -997.5999145507813,
-        "y": 3494.3994140625
+        "x": -997.0,
+        "y": 3496.0
     }
 }
 
@@ -5730,8 +5715,8 @@
     "m_ObjectId": "99c0b1a42ceb47889c844b9c5aef2d39",
     "m_Title": "Bool Tool",
     "m_Position": {
-        "x": -1180.800048828125,
-        "y": 3089.60009765625
+        "x": -1180.0,
+        "y": 3091.0
     }
 }
 
@@ -5889,8 +5874,8 @@
     "m_ObjectId": "9d9ef89eabb141c89d97476c76e5a494",
     "m_Title": "Ambient Light",
     "m_Position": {
-        "x": -810.3999633789063,
-        "y": 3492.000244140625
+        "x": -810.0,
+        "y": 3494.0
     }
 }
 
@@ -6696,8 +6681,8 @@
     "m_ObjectId": "b1724feefa5f45b1a1953d76a85da2fe",
     "m_Title": "Bool Tool",
     "m_Position": {
-        "x": -1040.8001708984375,
-        "y": 1462.400146484375
+        "x": -1040.0,
+        "y": 1464.0
     }
 }
 
@@ -7787,8 +7772,8 @@
     "m_ObjectId": "d9ab15ed30274f5981a197da22b39728",
     "m_Title": "Inline",
     "m_Position": {
-        "x": 356.79998779296877,
-        "y": 2970.400146484375
+        "x": 357.0,
+        "y": 2972.0
     }
 }
 
@@ -8059,8 +8044,8 @@
     "m_ObjectId": "e553a48857804572a99ce05c9358d167",
     "m_Title": "Blinn-Phong Specular",
     "m_Position": {
-        "x": -2438.400146484375,
-        "y": 2140.0
+        "x": -2438.0,
+        "y": 2142.0
     }
 }
 
@@ -8205,6 +8190,30 @@
     "m_SlotType": 0,
     "m_Hidden": false,
     "m_ShaderOutputName": "",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
+    "m_ObjectId": "ef2851f43b02497498d70fae7897dd72",
+    "m_Id": 0,
+    "m_DisplayName": "In",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "In",
     "m_StageCapability": 3,
     "m_Value": {
         "x": 0.0,
@@ -8705,8 +8714,8 @@
     "m_ObjectId": "fba0f7546a28457ea695dc6630a3907c",
     "m_Title": "Spherical Harmonics / Single Color",
     "m_Position": {
-        "x": -1282.39990234375,
-        "y": 3616.79931640625
+        "x": -1282.0,
+        "y": 3619.0
     }
 }
 
@@ -8716,8 +8725,8 @@
     "m_ObjectId": "fc0b4aa273cb473e84d2efa38d71ad2d",
     "m_Title": "Lambert",
     "m_Position": {
-        "x": -184.8000030517578,
-        "y": 3101.60009765625
+        "x": -184.0,
+        "y": 3103.0
     }
 }
 

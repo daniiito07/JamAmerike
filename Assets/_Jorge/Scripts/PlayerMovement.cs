@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private bool estaDeslizando = false;
     private bool yaCambioDireccion = false; 
     private bool boostActivo = false;
+    public bool IsBoostActive => boostActivo;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         boostActivo = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
+
 
         if (luzBoost != null) luzBoost.enabled = boostActivo;
         if (camaraScript != null) camaraScript.SetBoost(boostActivo);
