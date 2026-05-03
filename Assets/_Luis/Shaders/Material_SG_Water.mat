@@ -51,7 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FoamAmount: 2.93
+    - _FoamAmount: 0
     - _FoamCutOff: 9.54
     - _FoamScale: 200
     - _FoamSpeed: 0.3
