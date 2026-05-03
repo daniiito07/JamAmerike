@@ -9,14 +9,10 @@ public class TimerManager : MonoBehaviour
     [SerializeField] private Slider sliderTiempo;
 
     [Header("Game Over Settings")]
-    [Tooltip("Arrastra aquí el objeto 'Canvas Perdio'")]
     [SerializeField] private GameObject canvasPerdio;
 
     [Header("Configuración de Tiempo")]
     [SerializeField] private float tiempoInicialSegundos = 180f;
-
-    [Header("Configuración del Drenaje de Boost")]
-    [Tooltip("Segundos extra que se pierden POR CADA SEGUNDO de boost activado")]
     [SerializeField] private float multiplicadorDrenajeBoost = 10f;
 
     private float tiempoActual;
@@ -24,13 +20,13 @@ public class TimerManager : MonoBehaviour
 
     void Start()
     {
+        // Aseguramos que el juego empiece a tiempo normal
+        Time.timeScale = 1f;
         tiempoActual = tiempoInicialSegundos;
-
         if (canvasPerdio != null) canvasPerdio.SetActive(false);
 
         if (sliderTiempo != null)
         {
-            sliderTiempo.minValue = 0;
             sliderTiempo.maxValue = tiempoInicialSegundos;
             sliderTiempo.value = tiempoInicialSegundos;
         }
@@ -71,25 +67,24 @@ public class TimerManager : MonoBehaviour
         int segundos = Mathf.FloorToInt(tiempoVisual % 60);
         textoContador.text = string.Format("{0:00}:{1:00}", minutos, segundos);
 
-        if (sliderTiempo != null)
-        {
-            sliderTiempo.value = tiempoVisual;
-        }
+        if (sliderTiempo != null) sliderTiempo.value = tiempoVisual;
     }
 
     void TiempoFinalizado()
     {
         tiempoActual = 0;
         tiempoAgotado = true;
-        textoContador.text = "00:00";
-        if (sliderTiempo != null) sliderTiempo.value = 0;
 
         if (canvasPerdio != null)
         {
             canvasPerdio.SetActive(true);
-            Time.timeScale = 0f;          
-        }
 
-        Debug.Log("¡Tiempo agotado!");
+            // CRÍTICO: Bloquea todo el movimiento y lógica basada en tiempo
+            Time.timeScale = 0f;
+
+            // CRÍTICO: Habilita el mouse para poder presionar el botón
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
