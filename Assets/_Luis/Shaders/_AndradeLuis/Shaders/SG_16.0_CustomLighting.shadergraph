@@ -2080,8 +2080,8 @@
     "m_ObjectId": "08e6ff527b19400bbd4e6cc0ee4fc94e",
     "m_Title": "Direct Lighting",
     "m_Position": {
-        "x": -1989.599853515625,
-        "y": 2672.7998046875
+        "x": -1990.0,
+        "y": 2674.0
     }
 }
 
@@ -4137,8 +4137,8 @@
     "m_ObjectId": "4758d731b0104b0596f1d3d9b4573846",
     "m_Title": "Diffuse Color",
     "m_Position": {
-        "x": -2933.599853515625,
-        "y": 3135.99951171875
+        "x": -2933.0,
+        "y": 3137.0
     }
 }
 
@@ -4587,8 +4587,8 @@
     "m_ObjectId": "54e7be2f498d497f991f2a29dc9140e5",
     "m_Title": "RimLihgt",
     "m_Position": {
-        "x": -2182.39990234375,
-        "y": 3455.99951171875
+        "x": -2182.0,
+        "y": 3457.0
     }
 }
 
@@ -4887,8 +4887,8 @@
     "m_ObjectId": "5b5349c19af2408ab96eb784c1b253b1",
     "m_Title": "Perturbed Normals",
     "m_Position": {
-        "x": -2093.599853515625,
-        "y": 3319.19970703125
+        "x": -2093.0,
+        "y": 3320.0
     }
 }
 
@@ -5737,8 +5737,8 @@
     "m_ObjectId": "796e26d9d0594cd7bd7f57853afb79b9",
     "m_Title": "Intensity",
     "m_Position": {
-        "x": -1007.1998901367188,
-        "y": 2163.199951171875
+        "x": -1006.9995727539063,
+        "y": 2164.0
     }
 }
 
@@ -5830,8 +5830,8 @@
     "m_ObjectId": "7c048ff20b9b448abc8ba34b3bfd0e0c",
     "m_Title": "Normal blend / pertuberancias",
     "m_Position": {
-        "x": -3180.799560546875,
-        "y": 2571.199951171875
+        "x": -3180.0,
+        "y": 2572.0
     }
 }
 
@@ -6361,8 +6361,8 @@
     "m_ObjectId": "8979f712455043fbb81948cc05d91614",
     "m_Title": "Enmascarar con luz  directa y sombras",
     "m_Position": {
-        "x": -7.2000732421875,
-        "y": 2158.399658203125
+        "x": -7.0,
+        "y": 2159.0
     }
 }
 
@@ -6456,8 +6456,8 @@
     "m_ObjectId": "8b83c79224514011a71ca9df246b68a4",
     "m_Title": "Specular-Mask",
     "m_Position": {
-        "x": -1075.2001953125,
-        "y": 1635.1998291015625
+        "x": -1075.0,
+        "y": 1636.0
     }
 }
 
@@ -7100,8 +7100,8 @@
     "m_ObjectId": "9d9ef89eabb141c89d97476c76e5a494",
     "m_Title": "Ambient Light",
     "m_Position": {
-        "x": -1132.7999267578125,
-        "y": 3284.799560546875
+        "x": -1132.0,
+        "y": 3286.0
     }
 }
 
@@ -8306,8 +8306,8 @@
     "m_ObjectId": "bfeff1c87a29435d9fbc7fe74de1b75d",
     "m_Title": "Tile & Offset",
     "m_Position": {
-        "x": -3589.599853515625,
-        "y": 2034.399658203125
+        "x": -3589.0,
+        "y": 2035.0
     }
 }
 
@@ -9592,8 +9592,8 @@
     "m_ObjectId": "e553a48857804572a99ce05c9358d167",
     "m_Title": "Blinn-Phong Specular",
     "m_Position": {
-        "x": -2542.39990234375,
-        "y": 2162.399658203125
+        "x": -2542.0,
+        "y": 2163.0
     }
 }
 
@@ -10143,8 +10143,8 @@
     "m_ObjectId": "fc0b4aa273cb473e84d2efa38d71ad2d",
     "m_Title": "Lambert",
     "m_Position": {
-        "x": -550.39990234375,
-        "y": 3096.799560546875
+        "x": -550.0,
+        "y": 3098.0
     }
 }
 

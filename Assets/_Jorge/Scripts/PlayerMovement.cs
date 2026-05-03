@@ -11,14 +11,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Configuración de Rotación")]
     [SerializeField] private float velocidadRotacion = 15f;
-    [SerializeField] private float rotacionXFija = 90f; // Mantenemos los 90 grados
+    [SerializeField] private float rotacionXFija = 90f;
 
     [Header("Configuración de Boost")]
     [SerializeField] private float multiplicadorBoost = 2.5f;
     [SerializeField] private Light luzBoost;
 
     [Header("Referencias Externas")]
-    [SerializeField] private VignetteController vignetteScript;
     [SerializeField] private TopDownCameraController camaraScript;
 
     [Header("Filtros de Colisión")]
@@ -34,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
     private bool estaDeslizando = false;
     private bool yaCambioDireccion = false;
     private bool boostActivo = false;
+
+    // NUEVA VARIABLE: Para evitar que la luz se encienda sola tras chocar si sigues apretando el botón
+    private bool requiereSoltarTecla = false;
 
     public bool IsBoostActive => boostActivo;
 
@@ -52,10 +54,20 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        boostActivo = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
+        // 1. Detectamos si el jugador está tocando físicamente la tecla
+        bool presionandoTecla = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
+
+        // 2. Si el jugador suelta la tecla, reseteamos el bloqueo del choque
+        if (!presionandoTecla)
+        {
+            requiereSoltarTecla = false;
+        }
+
+        // 3. El boost solo se activa si estás presionando la tecla Y NO estás bloqueado por un choque
+        boostActivo = presionandoTecla && !requiereSoltarTecla;
 
         if (luzBoost != null)
-            luzBoost.enabled = boostActivo && estaDeslizando;
+            luzBoost.enabled = boostActivo;
 
         if (camaraScript != null) camaraScript.SetBoost(boostActivo);
 
@@ -86,13 +98,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (direccionActual == Vector3.zero) return;
 
-        // Calculamos el ángulo en base a la dirección
         float anguloObjetivo = Mathf.Atan2(direccionActual.x, direccionActual.z) * Mathf.Rad2Deg;
-
-        // INVERSIÓN: Le agregamos un signo negativo a 'anguloObjetivo' para corregir el sentido.
-        // Mantenemos 90 en X como pediste.
         Quaternion targetRotation = Quaternion.Euler(rotacionXFija, 0, -anguloObjetivo);
-
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * velocidadRotacion);
     }
 
@@ -152,9 +159,15 @@ public class PlayerMovement : MonoBehaviour
         yaCambioDireccion = false;
 
         if (animator != null) animator.SetTrigger("hit");
+
+        // --- AQUÍ APLICAMOS LA PENALIZACIÓN ---
+        requiereSoltarTecla = true; // Bloqueamos el input hasta que suelte la tecla
+        boostActivo = false;        // Apagamos el estado de boost
+
         if (luzBoost != null) luzBoost.enabled = false;
 
-        ContactPoint contact = collision.contacts[0];
+        // Corregimos el error CS0029: Accedemos al primer contacto de la colisión
+        ContactPoint contact = collision.GetContact(0);
         Vector3 direccionRebote = contact.normal;
 
         rb.linearVelocity = Vector3.zero;
