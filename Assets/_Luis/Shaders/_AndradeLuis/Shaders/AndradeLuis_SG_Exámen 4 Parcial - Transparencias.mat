@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5918625729045133364
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 10
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "AndradeLuis_SG_Ex\xE1men 4 Parcial - Transparencias"
+  m_Shader: {fileID: -6465566751694194690, guid: af943a64c742c9c45ab4b2b689fbbd5a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _SURFACE_TYPE_TRANSPARENT
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AOTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cubemap:
+        m_Texture: {fileID: 8900000, guid: 5d1c380ec4e4f2e419d699476549faeb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive_Texture:
+        m_Texture: {fileID: 2800000, guid: 6803c3a7b83d9464084c78d47a618777, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 6a58afe651744cb4abe8d17b7bef0503, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise_Texture:
+        m_Texture: {fileID: 2800000, guid: 278fa8d7648eefb499885fffe625c020, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: f3c3db907a74437488b20b8bcf2f5a25, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Transition_Texture:
+        m_Texture: {fileID: 2800000, guid: d00f39cd7e737fd41a10ed21ba0305c9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _AmbientLightIntensity: 0.67
+    - _Blend: 0
+    - _BlurBool: 0
+    - _Blur_Intensity: 0.03
+    - _Blur_Reflections: 0.63
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DstBlend: 10
+    - _DstBlendAlpha: 10
+    - _Float_3: 10
+    - _Float_5: 70
+    - _FresnelBoolean: 0
+    - _IOR_Power: 4.81
+    - _Noise_Intensity: 0.09
+    - _NormalStrenght: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReflectionDirection: 1
+    - _RimLightPower: 4.61
+    - _SrcBlend: 5
+    - _SrcBlendAlpha: 1
+    - _Surface: 1
+    - _Transition: 0.91
+    - _TransparentBoolean: 1
+    - _TransparentLightsBool: 1
+    - _TrasitionLineSize: 0.02
+    - _USEBLURHDVARIANT: 0
+    - _XY_Rotation: 0.25
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 1
+    - _Z_Rotation: 0.1
+    m_Colors:
+    - _ColorTransition: {r: 0, g: 51.377857, b: 44.276165, a: 0}
+    - _EmissiveLights_Color: {r: 6.574697, g: 6.0578356, b: 0.7318997, a: 0}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 0}
+    - _RimlightColor: {r: 0.0228495, g: 0, b: 0.4867924, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -8,7 +8,7 @@ public class TopDownCameraController : MonoBehaviour
 
     [Header("Configuración de Zoom (Orthographic Size)")]
     [SerializeField] private float sizeNormal = 18f;
-    [SerializeField] private float sizeBoost = 100f;
+    [SerializeField] private float sizeBoost = 25f;
 
     [Header("Animación")]
     [SerializeField] private float velocidadTransicion = 4f;
@@ -32,7 +32,7 @@ public class TopDownCameraController : MonoBehaviour
         
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (camaraPrincipal != null)
         {
