@@ -1,109 +1,84 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class ImageToMaze1 : MonoBehaviour
 {
-    [Header("Configuración de Archivo")]
     public Texture2D mazeTexture;
-
-    [Header("Prefabs")]
-    public GameObject wallPrefab; // Asegúrate de que sea un cubo simple
+    public Material wallMaterial; // Asigna tu material aquí
     public float cellSize = 1f;
 
-    [ContextMenu("Generar Laberinto Optimizado")]
+    [ContextMenu("Generar Laberinto Bajo Poligonaje")]
     public void Generate()
     {
-        // 1. Limpiar todo antes de empezar
         ClearMaze();
+        if (mazeTexture == null) return;
 
-        if (mazeTexture == null || wallPrefab == null)
-        {
-            Debug.LogError("Falta la textura o el Prefab del muro.");
-            return;
-        }
+        List<CombineInstance> combine = new List<CombineInstance>();
 
-        // 2. Crear un contenedor temporal para los bloques
-        GameObject tempContainer = new GameObject("TempContainer");
-        tempContainer.transform.parent = this.transform;
+        // Creamos una malla de referencia para una sola cara (Quad)
+        Mesh faceMesh = CreateQuadMesh();
 
-        // 3. Instanciar bloques basados en píxeles
         for (int x = 0; x < mazeTexture.width; x++)
         {
             for (int y = 0; y < mazeTexture.height; y++)
             {
-                Color pixelColor = mazeTexture.GetPixel(x, y);
-                if (pixelColor.grayscale < 0.5f)
+                if (IsBlack(x, y))
                 {
-                    Vector3 pos = new Vector3(x * cellSize, 0, y * cellSize);
-                    Instantiate(wallPrefab, pos, Quaternion.identity, tempContainer.transform);
+                    // Solo creamos las caras que dan al vacío (píxeles no negros)
+                    // Arriba (Top)
+                    AddFace(combine, faceMesh, x, y, Vector3.up, Quaternion.Euler(90, 0, 0));
+                    // Abajo (Bottom)
+                    AddFace(combine, faceMesh, x, y, Vector3.zero, Quaternion.Euler(-90, 0, 0));
+
+                    // Lados - Solo si el vecino NO es negro
+                    if (!IsBlack(x + 1, y)) AddFace(combine, faceMesh, x, y, Vector3.right, Quaternion.Euler(0, -90, 0));
+                    if (!IsBlack(x - 1, y)) AddFace(combine, faceMesh, x, y, Vector3.zero, Quaternion.Euler(0, 90, 0));
+                    if (!IsBlack(x, y + 1)) AddFace(combine, faceMesh, x, y, new Vector3(0, 0, 1), Quaternion.Euler(0, 180, 0));
+                    if (!IsBlack(x, y - 1)) AddFace(combine, faceMesh, x, y, Vector3.zero, Quaternion.Euler(0, 0, 0));
                 }
             }
         }
 
-        // 4. Combinar todas las mallas en una sola
-        CombineMeshes(tempContainer);
+        Mesh finalMesh = new Mesh();
+        finalMesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+        finalMesh.CombineMeshes(combine.ToArray(), true, true);
 
-        // 5. Limpieza final: Borrar los GameObjects individuales
-        DestroyImmediate(tempContainer);
+        GetComponent<MeshFilter>().sharedMesh = finalMesh;
+        GetComponent<MeshRenderer>().sharedMaterial = wallMaterial;
 
-        Debug.Log("¡Laberinto generado y optimizado!");
+        if (GetComponent<MeshCollider>() == null) gameObject.AddComponent<MeshCollider>();
+        GetComponent<MeshCollider>().sharedMesh = finalMesh;
     }
 
-    void CombineMeshes(GameObject container)
+    bool IsBlack(int x, int y)
     {
-        MeshFilter[] meshFilters = container.GetComponentsInChildren<MeshFilter>();
+        if (x < 0 || x >= mazeTexture.width || y < 0 || y >= mazeTexture.height) return false;
+        return mazeTexture.GetPixel(x, y).grayscale < 0.05f;
+    }
 
-        // Si no hay muros, no hacemos nada
-        if (meshFilters.Length == 0) return;
+    void AddFace(List<CombineInstance> list, Mesh mesh, int x, int y, Vector3 offset, Quaternion rot)
+    {
+        CombineInstance ci = new CombineInstance();
+        ci.mesh = mesh;
+        Vector3 position = new Vector3(x * cellSize, 0, y * cellSize) + (offset * cellSize);
+        ci.transform = Matrix4x4.TRS(position, rot, Vector3.one * cellSize);
+        list.Add(ci);
+    }
 
-        CombineInstance[] combine = new CombineInstance[meshFilters.Length];
-
-        // Guardamos el material del primer muro para aplicarlo al final (Evita el color rosa)
-        MeshRenderer firstRenderer = meshFilters[0].GetComponent<MeshRenderer>();
-        Material wallMaterial = firstRenderer != null ? firstRenderer.sharedMaterial : null;
-
-        for (int i = 0; i < meshFilters.Length; i++)
-        {
-            combine[i].mesh = meshFilters[i].sharedMesh;
-            // Posición relativa al objeto ImageToMaze1
-            combine[i].transform = meshFilters[i].transform.localToWorldMatrix * transform.worldToLocalMatrix;
-        }
-
-        // Creamos la malla final
-        Mesh finalMesh = new Mesh();
-        finalMesh.name = "CombinedMaze";
-        finalMesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
-        finalMesh.CombineMeshes(combine);
-
-        // Asignamos la malla al MeshFilter del objeto principal
-        GetComponent<MeshFilter>().sharedMesh = finalMesh;
-
-        // Asignamos el material para que NO se vea rosa
-        if (wallMaterial != null)
-        {
-            GetComponent<MeshRenderer>().sharedMaterial = wallMaterial;
-        }
-
-        // --- CONFIGURACIÓN DEL COLLIDER ---
-        MeshCollider sc = GetComponent<MeshCollider>();
-        if (sc == null) sc = gameObject.AddComponent<MeshCollider>();
-
-        // Al asignar la finalMesh, el collider solo existirá donde hay paredes
-        sc.sharedMesh = finalMesh;
-
-        Debug.Log("Malla y Colisionador generados correctamente.");
+    Mesh CreateQuadMesh()
+    {
+        Mesh mesh = new Mesh();
+        mesh.vertices = new Vector3[] { new Vector3(0, 0, 0), new Vector3(1, 0, 0), new Vector3(1, 1, 0), new Vector3(0, 1, 0) };
+        mesh.triangles = new int[] { 0, 2, 1, 0, 3, 2 };
+        mesh.uv = new Vector2[] { new Vector2(0, 0), new Vector2(1, 0), new Vector2(1, 1), new Vector2(0, 1) };
+        mesh.RecalculateNormals();
+        return mesh;
     }
 
     void ClearMaze()
     {
         GetComponent<MeshFilter>().sharedMesh = null;
         if (GetComponent<MeshCollider>() != null) GetComponent<MeshCollider>().sharedMesh = null;
-
-        // Borrar hijos remanentes
-        List<GameObject> children = new List<GameObject>();
-        foreach (Transform child in transform) children.Add(child.gameObject);
-        children.ForEach(child => DestroyImmediate(child));
     }
 }

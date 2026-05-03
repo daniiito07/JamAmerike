@@ -3,12 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Configuración de Movimiento")]
+    [Header("Configuraciï¿½n de Movimiento")]
     [SerializeField] private float aceleraccion = 15f;
     [SerializeField] private float VelocidadMaxima = 20f;
     [SerializeField] private float linearDampingAlChocar = 1f;
 
-    [Header("Configuración de Boost")]
+    [Header("Configuraciï¿½n de Boost")]
     [SerializeField] private float multiplicadorBoost = 2.5f;
     [SerializeField] private Light luzBoost;
 
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private VignetteController vignetteScript;
     [SerializeField] private TopDownCameraController camaraScript;
 
-    [Header("Filtros de Colisión")]
+    [Header("Filtros de Colisiï¿½n")]
     [SerializeField] private string tagPared = "Pared";
     [SerializeField] private LayerMask layerPared;
 
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private bool estaDeslizando = false;
     private bool yaCambioDireccion = false;
     private bool boostActivo = false;
+    public bool IsBoostActive => boostActivo;
 
     private void Awake()
     {
@@ -44,10 +45,14 @@ public class PlayerMovement : MonoBehaviour
     {
         boostActivo = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
 
-        // Control de la luz: Solo se enciende si hay boost Y el personaje se está moviendo
+
+        // Control de la luz: Solo se enciende si hay boost Y el personaje se estï¿½ moviendo
         if (luzBoost != null)
             luzBoost.enabled = boostActivo && estaDeslizando;
 
+
+
+   
         if (camaraScript != null) camaraScript.SetBoost(boostActivo);
 
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -89,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             direccionActual = dir;
             yaCambioDireccion = true;
 
-            Debug.Log("¡Cambio único utilizado!");
+            Debug.Log("ï¿½Cambio ï¿½nico utilizado!");
         }
     }
 

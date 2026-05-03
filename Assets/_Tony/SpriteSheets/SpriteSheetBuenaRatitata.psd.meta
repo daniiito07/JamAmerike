@@ -113,8 +113,8 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 171
+        x: 13
+        y: 270
         width: 34
         height: 73
       alignment: 0
@@ -135,8 +135,8 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_1
       rect:
         serializedVersion: 2
-        x: 47
-        y: 171
+        x: 54
+        y: 270
         width: 30
         height: 73
       alignment: 0
@@ -157,10 +157,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_2
       rect:
         serializedVersion: 2
-        x: 85
-        y: 174
+        x: 92
+        y: 270
         width: 30
-        height: 70
+        height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,10 +179,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_3
       rect:
         serializedVersion: 2
-        x: 120
-        y: 175
+        x: 127
+        y: 271
         width: 36
-        height: 69
+        height: 71
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +201,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 92
-        width: 34
-        height: 72
+        x: 169
+        y: 272
+        width: 44
+        height: 69
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_5
       rect:
         serializedVersion: 2
-        x: 40
-        y: 92
+        x: 10
+        y: 192
         width: 34
-        height: 72
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,10 +245,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_6
       rect:
         serializedVersion: 2
-        x: 4
-        y: 16
-        width: 30
-        height: 74
+        x: 47
+        y: 192
+        width: 34
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_7
       rect:
         serializedVersion: 2
-        x: 39
-        y: 16
-        width: 30
-        height: 74
+        x: 85
+        y: 198
+        width: 43
+        height: 71
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,10 +289,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_8
       rect:
         serializedVersion: 2
-        x: 74
-        y: 16
-        width: 30
-        height: 74
+        x: 131
+        y: 199
+        width: 45
+        height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,10 +311,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_9
       rect:
         serializedVersion: 2
-        x: 107
-        y: 16
-        width: 40
-        height: 74
+        x: 178
+        y: 203
+        width: 41
+        height: 61
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,10 +333,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_10
       rect:
         serializedVersion: 2
-        x: 150
-        y: 16
-        width: 41
-        height: 74
+        x: 11
+        y: 115
+        width: 30
+        height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,10 +355,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_11
       rect:
         serializedVersion: 2
-        x: 194
-        y: 16
-        width: 41
-        height: 74
+        x: 46
+        y: 115
+        width: 30
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -377,10 +377,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_13
       rect:
         serializedVersion: 2
-        x: 162
-        y: 176
-        width: 44
-        height: 68
+        x: 114
+        y: 115
+        width: 40
+        height: 74
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -399,10 +399,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_14
       rect:
         serializedVersion: 2
-        x: 124
-        y: 99
-        width: 45
-        height: 73
+        x: 157
+        y: 115
+        width: 41
+        height: 74
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -421,10 +421,10 @@ TextureImporter:
       name: SpriteSheetBuenaRatitata_15
       rect:
         serializedVersion: 2
-        x: 171
-        y: 99
+        x: 201
+        y: 115
         width: 41
-        height: 72
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -440,12 +440,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetBuenaRatitata_16
+      name: SpriteSheetBuenaRatitata_12
       rect:
         serializedVersion: 2
-        x: 78
-        y: 99
-        width: 43
+        x: 81
+        y: 116
+        width: 30
         height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -455,8 +455,184 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8db1e35cbf535c64c96e35f69a11e27c
-      internalID: -1893040938
+      spriteID: 9d31cb1edfb4f2247adc72ffa8cbbe2e
+      internalID: -1352847548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_17
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 50
+        width: 30
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e8e51cd1cbd0a043b9453a0fdd2be47
+      internalID: -1833191598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_18
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 51
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d008f5345e255c48b4e90d2c805b46e
+      internalID: -352291547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_19
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 51
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f8929bc8963964687c6fb6e17c2090
+      internalID: 296229783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_20
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 51
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1298a5980e6bd23468be2add7dfd7bd8
+      internalID: 1105030132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_21
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 51
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afeb640d75b366644b08cb8911767f48
+      internalID: 611104512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_22
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 50
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da906a635f337b94b8c45726a3627091
+      internalID: -1401237023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_23
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 50
+        width: 36
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d1508c9b42240499bb6a2b6d7a52ef
+      internalID: -43902721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetBuenaRatitata_24
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 51
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c978e9a01539f8e4997056bf7c74dd68
+      internalID: -672039353
       vertices: []
       indices: 
       edges: []
@@ -484,7 +660,15 @@ TextureImporter:
       SpriteSheetBuenaRatitata_14: 1918731221
       SpriteSheetBuenaRatitata_15: 801946985
       SpriteSheetBuenaRatitata_16: -1893040938
+      SpriteSheetBuenaRatitata_17: -1833191598
+      SpriteSheetBuenaRatitata_18: -352291547
+      SpriteSheetBuenaRatitata_19: 296229783
       SpriteSheetBuenaRatitata_2: -1614361734
+      SpriteSheetBuenaRatitata_20: 1105030132
+      SpriteSheetBuenaRatitata_21: 611104512
+      SpriteSheetBuenaRatitata_22: -1401237023
+      SpriteSheetBuenaRatitata_23: -43902721
+      SpriteSheetBuenaRatitata_24: -672039353
       SpriteSheetBuenaRatitata_3: -821644277
       SpriteSheetBuenaRatitata_4: -1559239419
       SpriteSheetBuenaRatitata_5: -1625077951
