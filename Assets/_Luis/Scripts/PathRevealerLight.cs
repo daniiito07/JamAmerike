@@ -33,9 +33,7 @@ public class PathRevealerLight : MonoBehaviour
 
     private void Update()
     {
-        // EJEMPLO: Activar con la tecla E. 
-        // Si quieres que se active al agarrar un ítem, puedes borrar esta parte del Input
-        // y simplemente llamar al método ActivarLuz() desde tu script de items.
+
         if (Input.GetKeyDown(KeyCode.E) && !estaRevelando)
         {
             ActivarLuz();

@@ -2,6 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Configuración de Movimiento")]
@@ -20,9 +21,20 @@ public class PlayerMovement : MonoBehaviour
     [Header("Referencias Externas")]
     [SerializeField] private TopDownCameraController camaraScript;
 
-    [Header("Filtros de Colisión")]
+    [Header("Audio")]
+    [SerializeField] private AudioClip[] sonidosPasos;
+    [SerializeField] private float tiempoEntrePasos = 0.3f;
+    [SerializeField] private AudioClip sonidoEstatica;
+
+    private AudioSource audioSource;
+    private float temporizadorPasos;
+
+    [Header("Victoria y UI")]
     [SerializeField] private string tagPared = "Pared";
     [SerializeField] private LayerMask layerPared;
+    [SerializeField] private string tagVictoria = "Victoria";
+    [Tooltip("Arrastra aquí el objeto del Panel de Victoria desde tu Canvas")]
+    [SerializeField] private GameObject panelVictoria; // <-- REFERENCIA DIRECTA AL PANEL
 
     [Header("Ajustes de Impacto")]
     [SerializeField] private float fuerzaRebote = 0.1f;
@@ -33,9 +45,8 @@ public class PlayerMovement : MonoBehaviour
     private bool estaDeslizando = false;
     private bool yaCambioDireccion = false;
     private bool boostActivo = false;
-
-    // NUEVA VARIABLE: Para evitar que la luz se encienda sola tras chocar si sigues apretando el botón
     private bool requiereSoltarTecla = false;
+    private bool juegoPausado = false;
 
     public bool IsBoostActive => boostActivo;
 
@@ -43,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         rb.linearDamping = 0;
         rb.angularDamping = 0;
@@ -50,20 +62,25 @@ public class PlayerMovement : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
         if (luzBoost != null) luzBoost.enabled = false;
+
+        // Aseguramos que el panel inicie apagado por seguridad
+        if (panelVictoria != null) panelVictoria.SetActive(false);
+
+        audioSource.loop = true;
+        audioSource.clip = sonidoEstatica;
     }
 
     void Update()
     {
-        // 1. Detectamos si el jugador está tocando físicamente la tecla
+        if (juegoPausado) return;
+
         bool presionandoTecla = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
 
-        // 2. Si el jugador suelta la tecla, reseteamos el bloqueo del choque
         if (!presionandoTecla)
         {
             requiereSoltarTecla = false;
         }
 
-        // 3. El boost solo se activa si estás presionando la tecla Y NO estás bloqueado por un choque
         boostActivo = presionandoTecla && !requiereSoltarTecla;
 
         if (luzBoost != null)
@@ -73,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
         ActualizarParametrosAnimacion();
         ProcesarRotacionZ();
+        ManejarAudio();
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
@@ -91,6 +109,44 @@ public class PlayerMovement : MonoBehaviour
             {
                 CambiarRumboUnico(nuevaDir);
             }
+        }
+    }
+
+    private void ManejarAudio()
+    {
+        if (boostActivo)
+        {
+            if (!audioSource.isPlaying) audioSource.Play();
+        }
+        else
+        {
+            if (audioSource.isPlaying) audioSource.Stop();
+        }
+
+        if (estaDeslizando)
+        {
+            temporizadorPasos -= Time.deltaTime;
+
+            float limiteTiempo = boostActivo ? tiempoEntrePasos * 0.6f : tiempoEntrePasos;
+
+            if (temporizadorPasos <= 0f)
+            {
+                ReproducirPaso();
+                temporizadorPasos = limiteTiempo;
+            }
+        }
+        else
+        {
+            temporizadorPasos = 0f;
+        }
+    }
+
+    private void ReproducirPaso()
+    {
+        if (sonidosPasos.Length > 0)
+        {
+            int index = Random.Range(0, sonidosPasos.Length);
+            audioSource.PlayOneShot(sonidosPasos[index], 0.7f);
         }
     }
 
@@ -133,6 +189,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (juegoPausado) return;
+
         if (estaDeslizando)
         {
             float fuerzaFinal = boostActivo ? aceleraccion * multiplicadorBoost : aceleraccion;
@@ -151,6 +209,42 @@ public class PlayerMovement : MonoBehaviour
         {
             GestionarImpacto(collision);
         }
+
+        if (collision.gameObject.CompareTag(tagVictoria))
+        {
+            GanarJuego();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(tagVictoria))
+        {
+            GanarJuego();
+        }
+    }
+
+    private void GanarJuego()
+    {
+        if (juegoPausado) return;
+
+        juegoPausado = true;
+        estaDeslizando = false;
+
+        if (audioSource.isPlaying) audioSource.Stop();
+
+        // --- ACTIVACIÓN DIRECTA DEL PANEL ---
+        if (panelVictoria != null)
+        {
+            panelVictoria.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("No asignaste el panel de victoria en el inspector.");
+        }
+
+        // Pausamos el juego
+        Time.timeScale = 0f;
     }
 
     private void GestionarImpacto(Collision collision)
@@ -160,13 +254,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (animator != null) animator.SetTrigger("hit");
 
-        // --- AQUÍ APLICAMOS LA PENALIZACIÓN ---
-        requiereSoltarTecla = true; // Bloqueamos el input hasta que suelte la tecla
-        boostActivo = false;        // Apagamos el estado de boost
+        requiereSoltarTecla = true;
+        boostActivo = false;
 
         if (luzBoost != null) luzBoost.enabled = false;
 
-        // Corregimos el error CS0029: Accedemos al primer contacto de la colisión
         ContactPoint contact = collision.GetContact(0);
         Vector3 direccionRebote = contact.normal;
 

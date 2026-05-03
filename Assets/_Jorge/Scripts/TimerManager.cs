@@ -20,7 +20,6 @@ public class TimerManager : MonoBehaviour
 
     void Start()
     {
-        // Aseguramos que el juego empiece a tiempo normal
         Time.timeScale = 1f;
         tiempoActual = tiempoInicialSegundos;
         if (canvasPerdio != null) canvasPerdio.SetActive(false);
@@ -70,7 +69,7 @@ public class TimerManager : MonoBehaviour
         if (sliderTiempo != null) sliderTiempo.value = tiempoVisual;
     }
 
-    void TiempoFinalizado()
+    public void TiempoFinalizado()
     {
         tiempoActual = 0;
         tiempoAgotado = true;
@@ -79,10 +78,8 @@ public class TimerManager : MonoBehaviour
         {
             canvasPerdio.SetActive(true);
 
-            // CRÍTICO: Bloquea todo el movimiento y lógica basada en tiempo
             Time.timeScale = 0f;
 
-            // CRÍTICO: Habilita el mouse para poder presionar el botón
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

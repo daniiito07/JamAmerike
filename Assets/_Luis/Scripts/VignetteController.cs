@@ -13,7 +13,7 @@ public class VignetteController : MonoBehaviour
         globalVolume.profile.TryGet(out vignette);
     }
 
-    // Esta función será llamada por tu PlayerMovement
+
     public void SetBoost(bool isBoosting)
     {
         intensidadObjetivo = isBoosting ? 0.3f : 1f;

@@ -45,7 +45,7 @@ public class TopDownCameraController : MonoBehaviour
         Vector3 posicionObjetivo = jugador.position + offset;
         transform.position = Vector3.Lerp(transform.position, posicionObjetivo, Time.deltaTime * suavidadSeguimiento);
 
-        // 2. HACER ZOOM
+
         if (camaraPrincipal != null)
         {
             camaraPrincipal.orthographicSize = Mathf.Lerp(camaraPrincipal.orthographicSize, sizeObjetivo, Time.deltaTime * velocidadZoom);

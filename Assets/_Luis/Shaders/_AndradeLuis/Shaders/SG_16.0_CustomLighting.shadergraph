@@ -2080,7 +2080,7 @@
     "m_ObjectId": "08e6ff527b19400bbd4e6cc0ee4fc94e",
     "m_Title": "Direct Lighting",
     "m_Position": {
-        "x": -1990.0,
+        "x": -1990.0001220703125,
         "y": 2674.0
     }
 }
@@ -4137,7 +4137,7 @@
     "m_ObjectId": "4758d731b0104b0596f1d3d9b4573846",
     "m_Title": "Diffuse Color",
     "m_Position": {
-        "x": -2933.0,
+        "x": -2933.000244140625,
         "y": 3137.0
     }
 }
@@ -5737,7 +5737,7 @@
     "m_ObjectId": "796e26d9d0594cd7bd7f57853afb79b9",
     "m_Title": "Intensity",
     "m_Position": {
-        "x": -1006.9995727539063,
+        "x": -1007.000244140625,
         "y": 2164.0
     }
 }
@@ -5830,7 +5830,7 @@
     "m_ObjectId": "7c048ff20b9b448abc8ba34b3bfd0e0c",
     "m_Title": "Normal blend / pertuberancias",
     "m_Position": {
-        "x": -3180.0,
+        "x": -3180.000244140625,
         "y": 2572.0
     }
 }
@@ -6361,7 +6361,7 @@
     "m_ObjectId": "8979f712455043fbb81948cc05d91614",
     "m_Title": "Enmascarar con luz  directa y sombras",
     "m_Position": {
-        "x": -7.0,
+        "x": -7.000244140625,
         "y": 2159.0
     }
 }
@@ -6456,7 +6456,7 @@
     "m_ObjectId": "8b83c79224514011a71ca9df246b68a4",
     "m_Title": "Specular-Mask",
     "m_Position": {
-        "x": -1075.0,
+        "x": -1075.000244140625,
         "y": 1636.0
     }
 }
@@ -7100,7 +7100,7 @@
     "m_ObjectId": "9d9ef89eabb141c89d97476c76e5a494",
     "m_Title": "Ambient Light",
     "m_Position": {
-        "x": -1132.0,
+        "x": -1132.00048828125,
         "y": 3286.0
     }
 }
@@ -8306,7 +8306,7 @@
     "m_ObjectId": "bfeff1c87a29435d9fbc7fe74de1b75d",
     "m_Title": "Tile & Offset",
     "m_Position": {
-        "x": -3589.0,
+        "x": -3589.000244140625,
         "y": 2035.0
     }
 }
@@ -9592,7 +9592,7 @@
     "m_ObjectId": "e553a48857804572a99ce05c9358d167",
     "m_Title": "Blinn-Phong Specular",
     "m_Position": {
-        "x": -2542.0,
+        "x": -2542.000244140625,
         "y": 2163.0
     }
 }
@@ -10143,7 +10143,7 @@
     "m_ObjectId": "fc0b4aa273cb473e84d2efa38d71ad2d",
     "m_Title": "Lambert",
     "m_Position": {
-        "x": -550.0,
+        "x": -550.0003051757813,
         "y": 3098.0
     }
 }
