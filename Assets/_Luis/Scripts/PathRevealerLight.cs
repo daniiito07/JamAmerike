@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PathRevealerLight : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class PathRevealerLight : MonoBehaviour
     {  
         if (luzReveladora != null)
         {
-            luzReveladora.intensity = 0f;
+            luzReveladora.intensity = 180f;
         }
         else
         {
