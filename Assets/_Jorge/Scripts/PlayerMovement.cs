@@ -1,14 +1,19 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Configuraci�n de Movimiento")]
+    [Header("Configuración de Movimiento")]
     [SerializeField] private float aceleraccion = 15f;
     [SerializeField] private float VelocidadMaxima = 20f;
     [SerializeField] private float linearDampingAlChocar = 1f;
 
-    [Header("Configuraci�n de Boost")]
+    [Header("Configuración de Rotación")]
+    [SerializeField] private float velocidadRotacion = 15f;
+    [SerializeField] private float rotacionXFija = 90f; // Mantenemos los 90 grados
+
+    [Header("Configuración de Boost")]
     [SerializeField] private float multiplicadorBoost = 2.5f;
     [SerializeField] private Light luzBoost;
 
@@ -16,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private VignetteController vignetteScript;
     [SerializeField] private TopDownCameraController camaraScript;
 
-    [Header("Filtros de Colisi�n")]
+    [Header("Filtros de Colisión")]
     [SerializeField] private string tagPared = "Pared";
     [SerializeField] private LayerMask layerPared;
 
@@ -24,15 +29,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float fuerzaRebote = 0.1f;
 
     private Rigidbody rb;
+    private Animator animator;
     private Vector3 direccionActual;
     private bool estaDeslizando = false;
     private bool yaCambioDireccion = false;
     private bool boostActivo = false;
+
     public bool IsBoostActive => boostActivo;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+
         rb.linearDamping = 0;
         rb.angularDamping = 0;
         rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
@@ -45,15 +54,13 @@ public class PlayerMovement : MonoBehaviour
     {
         boostActivo = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift);
 
-
-        // Control de la luz: Solo se enciende si hay boost Y el personaje se est� moviendo
         if (luzBoost != null)
             luzBoost.enabled = boostActivo && estaDeslizando;
 
-
-
-   
         if (camaraScript != null) camaraScript.SetBoost(boostActivo);
+
+        ActualizarParametrosAnimacion();
+        ProcesarRotacionZ();
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
@@ -75,6 +82,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void ProcesarRotacionZ()
+    {
+        if (direccionActual == Vector3.zero) return;
+
+        // Calculamos el ángulo en base a la dirección
+        float anguloObjetivo = Mathf.Atan2(direccionActual.x, direccionActual.z) * Mathf.Rad2Deg;
+
+        // INVERSIÓN: Le agregamos un signo negativo a 'anguloObjetivo' para corregir el sentido.
+        // Mantenemos 90 en X como pediste.
+        Quaternion targetRotation = Quaternion.Euler(rotacionXFija, 0, -anguloObjetivo);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * velocidadRotacion);
+    }
+
+    private void ActualizarParametrosAnimacion()
+    {
+        if (animator == null) return;
+        animator.SetBool("isMoving", estaDeslizando);
+        animator.SetBool("isBoosting", boostActivo);
+    }
+
     private void IniciarMovimiento(Vector3 dir)
     {
         if (!Physics.Raycast(transform.position, dir, 0.8f, layerPared))
@@ -93,8 +121,6 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             direccionActual = dir;
             yaCambioDireccion = true;
-
-            Debug.Log("�Cambio �nico utilizado!");
         }
     }
 
@@ -124,9 +150,8 @@ public class PlayerMovement : MonoBehaviour
     {
         estaDeslizando = false;
         yaCambioDireccion = false;
-        direccionActual = Vector3.zero;
 
-        // APAGAR LUZ AL CHOCAR
+        if (animator != null) animator.SetTrigger("hit");
         if (luzBoost != null) luzBoost.enabled = false;
 
         ContactPoint contact = collision.contacts[0];
@@ -138,5 +163,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(direccionRebote * fuerzaRebote, ForceMode.Impulse);
         rb.linearDamping = linearDampingAlChocar;
         transform.position += direccionRebote * 0.05f;
+
+        direccionActual = Vector3.zero;
     }
 }
