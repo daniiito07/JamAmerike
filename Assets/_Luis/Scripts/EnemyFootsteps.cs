@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyFootsteps : MonoBehaviour
 {
     [Header("Librería de Sonidos")]
-    [Tooltip("Arrastra aquí tus 5 o más variantes de pasos")]
+    [Tooltip("Arrastra aquí tus 8 o más variantes de pasos")]
     [SerializeField] private AudioClip[] sonidosDePasos;
 
     [Header("Configuración de Pasos")]
@@ -15,7 +15,7 @@ public class EnemyFootsteps : MonoBehaviour
 
     [Tooltip("Volumen del paso")]
     [Range(0f, 1f)]
-    [SerializeField] private float volumen = 0.8f;
+    [SerializeField] private float volumen = 0.2f;
 
     private AudioSource audioSource;
     private NavMeshAgent agent;
@@ -65,7 +65,7 @@ public class EnemyFootsteps : MonoBehaviour
 
         // 2. Modificamos el "Pitch" ligeramente para dar aún más variedad (opcional pero muy recomendado)
         // Esto hace que el mismo archivo suene un poquito más grave o agudo cada vez
-        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.pitch = Random.Range(0.9f, 1.8f);
 
         // 3. Reproducimos el sonido sin cortar el anterior (PlayOneShot)
         audioSource.PlayOneShot(pasoElegido, volumen);
